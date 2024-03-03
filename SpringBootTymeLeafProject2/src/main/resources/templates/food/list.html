@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		  <div class="col-md-3" th:each="vo:${list}">
+    		<div class="thumbnail">
+     		 <a th:href="@{/food/detail(fno=${vo.fno})}">
+        <img th:src="'http://www.menupan.com'+${vo.poster}"  style="width:100%">
+        <div class="caption">
+          <p th:text="${vo.name}"></p>
+        </div>
+      </a>
+    </div>
+	</div>
+</div>
+<div style="hight:10px"></div>
+<div class="row">
+	<div class="text-center">
+		<ul class="pagination">
+			<li th:if="${startpage>1}"><a th:href="@{/food/list(page=${startpage-1})}">&laquo;</a></li>
+			<li th:each="i:${#numbers.sequence(startpage,endpage)}" th:class="${curpage==i?'active':''}"><a th:href="@{/food/list(page=${i})}" th:text="${i}"></a></li>
+			<li th:if="${endpage<totalpage}"><a th:href="@{/food/list(page=${endpage+1})}">&raquo;</a></li>
+		</ul>
+	</div>
+</div>
+</div>
+</body>
+</html>

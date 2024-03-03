@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.row{
+margin:0px auto;
+width:960px;
+
+}
+</style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			 <div class="col-md-3" th:each="vo:${list}">
+    <div class="thumbnail">
+      <a href="#">
+        <img th:src="'http://www.menupan.com'+${vo.poster}" alt="Lights" style="width:100%">
+        <div class="caption">
+          <p th:text="${vo.name}"></p>
+        </div>
+      </a>
+    </div>
+  </div>
+		</div>
+	</div>
+</body>
+</html>

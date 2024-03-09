@@ -30,12 +30,7 @@
         </li>
       </ul>
     </div>
-    <h2 class="sectiontitle">최근 방문 레시피</h2>
-    <div class="inline">
-     <a th:href="@{/recipe/detail(no=${cvo.no})}" th:each="cvo:${cList}">
-      <img th:src="${cvo.poster}" style="width: 100px;height: 100px;margin-left: 3px">
-     </a>
-    </div>
+  
     <div class="clear"></div>
   </main>
 </div>
